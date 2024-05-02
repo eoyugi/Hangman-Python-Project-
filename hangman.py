@@ -1,29 +1,26 @@
-
-# Import the random module
 import random
 
-# List of words for the game
 words = ["python", "java", "hangman", "javascript", "docker"]
-
 random_word = random.choice(words)
-
-# Now you can print underscores for each letter in the random word
-print("_" * len(random_word))
-
-guessed_letters = []  # Define the guessed_letters variable
-
-guess = input("Guess a letter: ")
+guessed_letters = []
+attempts = 7
 game_over = False
-attempts = 7  # Define the attempts variable
 
 while not game_over:
-    # Game logic goes here
+    print("_" * len(random_word))
+    guess = input("Guess a letter: ")
+
     if guess in random_word:
         guessed_letters.append(guess)
     else:
-        attempts -= 1  # Decrement attempts if the guess is wrong
+        attempts -= 1
 
-    if set(random_word).issubset(set(guessed_letters)):
+    all_guessed = True
+    for letter in random_word:
+        if letter not in guessed_letters:
+            all_guessed = False
+
+    if all_guessed:
         print("Congratulations, you won!")
         game_over = True
     elif attempts == 0:
