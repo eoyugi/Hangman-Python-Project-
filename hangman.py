@@ -1,7 +1,6 @@
 
 import random
 
-
 word_list = ["python", "java", "hangman", ...]  # Define the word_list variable
 attempts = 6
 
