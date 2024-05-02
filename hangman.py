@@ -13,7 +13,7 @@ while attempts > 0:
 guessed_letters = []  # Define the guessed_letters variable
 
 guess = input("Guess a letter: ")
-
+game_over = False
 while not game_over:
     # Game logic goes here
     if guess in random_word:
